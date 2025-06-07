@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.30"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "P3_ABlanco_PMendez_FPicado_JMora",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "P3_ABlanco_PMendez_FPicado_JMora::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-P3_ABlanco_PMendez_FPicado_JMora-Debug-f8761f2a5795a6a98ba0.json",
+					"name" : "P3_ABlanco_PMendez_FPicado_JMora",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug",
+		"source" : "D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}
