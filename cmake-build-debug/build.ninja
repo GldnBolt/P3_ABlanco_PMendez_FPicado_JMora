@@ -49,9 +49,31 @@ cmake_ninja_workdir = D$:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-de
 
 build cmake_object_order_depends_target_P3_ABlanco_PMendez_FPicado_JMora: phony || .
 
-build CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/TECMFS-Disk.cpp.obj: CXX_COMPILER__P3_ABlanco_PMendez_FPicado_JMora_unscanned_Debug D$:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/TECMFS-Disk.cpp || cmake_object_order_depends_target_P3_ABlanco_PMendez_FPicado_JMora
-  DEP_FILE = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir\TECMFS-Disk.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+build CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/main.cpp.obj: CXX_COMPILER__P3_ABlanco_PMendez_FPicado_JMora_unscanned_Debug D$:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/main.cpp || cmake_object_order_depends_target_P3_ABlanco_PMendez_FPicado_JMora
+  DEP_FILE = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir\main.cpp.obj.d
+  FLAGS = -g -std=c++20 -fdiagnostics-color=always
+  INCLUDES = -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora
+  OBJECT_DIR = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir
+  OBJECT_FILE_DIR = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir
+
+build CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/DiskNode.cpp.obj: CXX_COMPILER__P3_ABlanco_PMendez_FPicado_JMora_unscanned_Debug D$:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/DiskNode.cpp || cmake_object_order_depends_target_P3_ABlanco_PMendez_FPicado_JMora
+  DEP_FILE = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir\DiskNode.cpp.obj.d
+  FLAGS = -g -std=c++20 -fdiagnostics-color=always
+  INCLUDES = -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora
+  OBJECT_DIR = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir
+  OBJECT_FILE_DIR = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir
+
+build CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/tinyxml2.cpp.obj: CXX_COMPILER__P3_ABlanco_PMendez_FPicado_JMora_unscanned_Debug D$:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/tinyxml2.cpp || cmake_object_order_depends_target_P3_ABlanco_PMendez_FPicado_JMora
+  DEP_FILE = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir\tinyxml2.cpp.obj.d
+  FLAGS = -g -std=c++20 -fdiagnostics-color=always
+  INCLUDES = -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora
+  OBJECT_DIR = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir
+  OBJECT_FILE_DIR = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir
+
+build CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/ControllerNode.cpp.obj: CXX_COMPILER__P3_ABlanco_PMendez_FPicado_JMora_unscanned_Debug D$:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/ControllerNode.cpp || cmake_object_order_depends_target_P3_ABlanco_PMendez_FPicado_JMora
+  DEP_FILE = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir\ControllerNode.cpp.obj.d
+  FLAGS = -g -std=c++20 -fdiagnostics-color=always
+  INCLUDES = -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora
   OBJECT_DIR = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir
   OBJECT_FILE_DIR = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir
 
@@ -63,7 +85,7 @@ build CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/TECMFS-Disk.cpp.obj: CXX_C
 #############################################
 # Link the executable P3_ABlanco_PMendez_FPicado_JMora.exe
 
-build P3_ABlanco_PMendez_FPicado_JMora.exe: CXX_EXECUTABLE_LINKER__P3_ABlanco_PMendez_FPicado_JMora_Debug CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/TECMFS-Disk.cpp.obj
+build P3_ABlanco_PMendez_FPicado_JMora.exe: CXX_EXECUTABLE_LINKER__P3_ABlanco_PMendez_FPicado_JMora_Debug CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/main.cpp.obj CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/DiskNode.cpp.obj CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/tinyxml2.cpp.obj CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/ControllerNode.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir
