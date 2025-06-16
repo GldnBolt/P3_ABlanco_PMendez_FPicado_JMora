@@ -1,0 +1,7 @@
+<NodeConfiguration>
+    <IP>127.0.0.1</IP>
+    <Port>9003</Port>
+    <StorageDir>data/node3</StorageDir>
+    <NumBlocks>4</NumBlocks>
+    <BlockSize>4096</BlockSize>
+</NodeConfiguration>

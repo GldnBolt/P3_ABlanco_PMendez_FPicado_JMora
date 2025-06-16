@@ -1,0 +1,8 @@
+# ninja log v6
+10	968	7717465829952785	CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/DiskNode.cpp.obj	480643a0ca31ea1
+11	1648	7717465160531791	CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/tinyxml2.cpp.obj	5f79532b4229a279
+5	673	7717482991250348	CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/main.cpp.obj	5952f9abb4c4d95a
+23	788	7717476124371897	CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/ControllerNode.cpp.obj	136755d76a12216d
+673	859	7717482997938504	P3_ABlanco_PMendez_FPicado_JMora.exe	df0eaedb0eea5a0b
+2	248	7717486326692624	build.ninja	e5ab951423eed058
+4	193	7717486430263612	P3_ABlanco_PMendez_FPicado_JMora.exe	aaa2264c23326944
