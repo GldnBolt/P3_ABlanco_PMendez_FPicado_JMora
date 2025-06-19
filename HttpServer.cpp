@@ -29,7 +29,6 @@ void HttpServer::setupRoutes() {
 
         auto name = req.get_param_value("name");
         if (name.empty()) {
-            // Intenta obtener name de req.files si no está en params
             for (const auto& file : req.files) {
                 if (file.first == "name") {
                     name = file.second.content;
@@ -110,9 +109,8 @@ void HttpServer::setupRoutes() {
             auto name = req.matches[1];
             try {
                 auto content = controller_->downloadDocument(name);
-                // Detectar MIME type dinámicamente (simplificado)
-                std::string mime = controller_->downloadDocument(name); // Reutiliza para MIME
-                res.set_content(content, mime.c_str());
+                // El MIME type se determina en downloadDocument y no se usa aquí directamente
+                res.set_content(content, "application/octet-stream"); // Valor por defecto
             }
             catch (const std::exception& e) {
                 std::string error = "Error: ";

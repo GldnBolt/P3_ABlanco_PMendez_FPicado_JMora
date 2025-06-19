@@ -1,6 +1,5 @@
 #include "ControllerNode.h"
 #include <stdexcept>
-<<<<<<< HEAD
 #include <fstream>
 #include <sstream>
 #include <filesystem>
@@ -12,17 +11,8 @@ ControllerNode::ControllerNode(const std::string& metadataFile, const std::vecto
 {
     if (numDisks_ < 3)
         throw std::runtime_error("RAID5 requiere al menos 3 discos");
-    // Crear directorio para metadatos
     fs::create_directories(fs::path(metadataFile_).parent_path());
     loadMetadata();
-=======
-
-ControllerNode::ControllerNode(const std::vector<std::shared_ptr<DiskNode>>& disks)
-  : disks_(disks), numDisks_(disks.size())
-{
-    if (numDisks_ < 3)
-        throw std::runtime_error("RAID5 requiere al menos 3 discos");
->>>>>>> 5d8529b2b1638fd79eadf79dd08b4da6da5fd95e
 }
 
 std::string ControllerNode::xorParity(const std::vector<std::string>& blocks) {
@@ -40,27 +30,15 @@ std::string ControllerNode::xorParity(const std::vector<std::string>& blocks) {
 }
 
 void ControllerNode::writeStripe(int stripeIndex, const std::string& data) {
-<<<<<<< HEAD
-=======
-    // El disco de paridad rota: p = (numDisks_ - 1) - (stripeIndex % numDisks_)
->>>>>>> 5d8529b2b1638fd79eadf79dd08b4da6da5fd95e
     int p = (numDisks_ - 1) - (stripeIndex % numDisks_);
     std::vector<std::string> dataBlocks;
     dataBlocks.reserve(numDisks_ - 1);
 
-<<<<<<< HEAD
-=======
-    // Primero escribimos datos en todos menos en el de paridad
->>>>>>> 5d8529b2b1638fd79eadf79dd08b4da6da5fd95e
     for (int d = 0; d < numDisks_; ++d) {
         if (d == p) continue;
         disks_[d]->writeBlock(stripeIndex, data);
         dataBlocks.push_back(data);
     }
-<<<<<<< HEAD
-=======
-    // Luego calculamos y grabamos la paridad
->>>>>>> 5d8529b2b1638fd79eadf79dd08b4da6da5fd95e
     std::string parity = xorParity(dataBlocks);
     disks_[p]->writeBlock(stripeIndex, parity);
 }
@@ -70,46 +48,29 @@ std::string ControllerNode::readStripe(int stripeIndex) {
     std::vector<std::string> dataBlocks(numDisks_);
     int missing = -1;
 
-<<<<<<< HEAD
     for (int d = 0; d < numDisks_; ++d) {
         try {
             dataBlocks[d] = disks_[d]->readBlock(stripeIndex);
         }
         catch (...) {
-=======
-    // Intentamos leer todos; detectamos si alguno falla (excepción)
-    for (int d = 0; d < numDisks_; ++d) {
-        try {
-            dataBlocks[d] = disks_[d]->readBlock(stripeIndex);
-        } catch (...) {
->>>>>>> 5d8529b2b1638fd79eadf79dd08b4da6da5fd95e
             missing = d;
         }
     }
 
-<<<<<<< HEAD
-=======
-    // Si todo OK, devolvemos el primero de datos (ejemplo)
->>>>>>> 5d8529b2b1638fd79eadf79dd08b4da6da5fd95e
     if (missing == -1) {
         for (int d = 0; d < numDisks_; ++d) {
             if (d != p) return dataBlocks[d];
         }
     }
 
-<<<<<<< HEAD
-=======
-    // Si hubo un fallo, reconstruimos:
-    // block_missing = xorParity( todos excepto missing )
->>>>>>> 5d8529b2b1638fd79eadf79dd08b4da6da5fd95e
     std::vector<std::string> others;
     others.reserve(numDisks_ - 1);
     for (int d = 0; d < numDisks_; ++d) {
         if (d == missing) continue;
         others.push_back(dataBlocks[d]);
     }
-<<<<<<< HEAD
-    return xorParity(others);
+    std::string recovered = xorParity(others);
+    return recovered;
 }
 
 void ControllerNode::loadMetadata() {
@@ -142,9 +103,9 @@ void ControllerNode::saveMetadata() {
 
 void ControllerNode::addDocument(const std::string& docName, const std::string& content) {
     if (docToStripes_.find(docName) != docToStripes_.end()) {
-        deleteDocument(docName); // Sobrescribe eliminando el anterior
+        deleteDocument(docName);
     }
-    int blockSize = disks_[0]->getBlockSize(); // Usar blockSize del primer disco
+    int blockSize = disks_[0]->getBlockSize();
     std::vector<int> stripes;
     for (size_t i = 0; i < content.size(); i += blockSize) {
         std::string chunk = content.substr(i, blockSize);
@@ -179,8 +140,7 @@ void ControllerNode::deleteDocument(const std::string& docName) {
             try {
                 disks_[d]->writeBlock(stripeIndex, std::string(disks_[0]->getBlockSize(), '\0'));
             }
-            catch (...) {
-            }
+            catch (...) {}
         }
     }
     docToStripes_.erase(it);
@@ -214,14 +174,9 @@ std::string ControllerNode::downloadDocument(const std::string& docName) {
         content += chunk;
     }
     std::string mime = "application/octet-stream";
-    if (docName.ends_with(".txt")) mime = "text/plain";
-    else if (docName.ends_with(".pdf")) mime = "application/pdf";
-    else if (docName.ends_with(".jpg") || docName.ends_with(".jpeg")) mime = "image/jpeg";
-    // Nota: El servidor HTTP usará este mime al devolverlo
+    if (docName.length() >= 4 && docName.substr(docName.length() - 4) == ".txt") mime = "text/plain";
+    else if (docName.length() >= 4 && docName.substr(docName.length() - 4) == ".pdf") mime = "application/pdf";
+    else if ((docName.length() >= 4 && docName.substr(docName.length() - 4) == ".jpg") ||
+        (docName.length() >= 5 && docName.substr(docName.length() - 5) == ".jpeg")) mime = "image/jpeg";
     return content;
 }
-=======
-    std::string recovered = xorParity(others);
-    return recovered;
-}
->>>>>>> 5d8529b2b1638fd79eadf79dd08b4da6da5fd95e
