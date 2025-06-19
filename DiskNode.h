@@ -12,6 +12,7 @@ public:
     std::string readBlock(int blockIndex);
     void writeBlock(int blockIndex, const std::string& data);
     std::string getInfo() const;
+    int getBlockSize() const { return blockSize_; } // Getter incluido
 
 private:
     std::string ip_;

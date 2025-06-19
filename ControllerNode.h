@@ -4,25 +4,31 @@
 #include <vector>
 #include <memory>
 #include <string>
+#include <map>
 #include "DiskNode.h"
 
 class ControllerNode {
 public:
-    // Recibe los 4 nodos de disco ya inicializados
-    ControllerNode(const std::vector<std::shared_ptr<DiskNode>>& disks);
+    ControllerNode(const std::string& metadataFile, const std::vector<std::shared_ptr<DiskNode>>& disks);
 
-    // Escribe un bloque de datos + paridad en la "franja" stripeIndex
     void writeStripe(int stripeIndex, const std::string& data);
-
-    // Lee un bloque de datos de la franja; si un disco falla, reconstruye
     std::string readStripe(int stripeIndex);
+
+    // Nuevas funciones para documentos
+    void addDocument(const std::string& docName, const std::string& content);
+    void deleteDocument(const std::string& docName);
+    std::vector<std::string> searchDocument(const std::string& docName, bool exact = false);
+    std::string downloadDocument(const std::string& docName);
 
 private:
     std::vector<std::shared_ptr<DiskNode>> disks_;
     int numDisks_;
+    std::map<std::string, std::vector<int>> docToStripes_;
+    std::string metadataFile_;
 
-    // Calcula el bloque de paridad XOR de todos los bloques dados
     std::string xorParity(const std::vector<std::string>& blocks);
+    void loadMetadata();
+    void saveMetadata();
 };
 
 #endif // CONTROLLERNODE_H
