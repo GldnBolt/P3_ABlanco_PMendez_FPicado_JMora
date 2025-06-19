@@ -4,7 +4,12 @@ project(P3_ABlanco_PMendez_FPicado_JMora)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+<<<<<<< HEAD
+# Incluir directorio para httplib.h
+include_directories(${CMAKE_SOURCE_DIR} ${CMAKE_SOURCE_DIR}/include)
+=======
 include_directories(${CMAKE_SOURCE_DIR})
+>>>>>>> 5d8529b2b1638fd79eadf79dd08b4da6da5fd95e
 
 # Crear build/config si no existe
 file(MAKE_DIRECTORY "${CMAKE_BINARY_DIR}/config")
@@ -24,6 +29,19 @@ endforeach()
 
 # Fuentes
 set(SOURCES
+<<<<<<< HEAD
+    main.cpp
+    DiskNode.cpp
+    ControllerNode.cpp
+    HttpServer.cpp
+    tinyxml2.cpp
+)
+add_executable(P3_ABlanco_PMendez_FPicado_JMora ${SOURCES})
+# En Windows, añadir Winsock para cpp-httplib
+if(WIN32)
+    target_link_libraries(P3_ABlanco_PMendez_FPicado_JMora ws2_32)
+endif()
+=======
         main.cpp
         DiskNode.cpp
         ControllerNode.cpp
@@ -31,3 +49,4 @@ set(SOURCES
 )
 
 add_executable(P3_ABlanco_PMendez_FPicado_JMora ${SOURCES})
+>>>>>>> 5d8529b2b1638fd79eadf79dd08b4da6da5fd95e

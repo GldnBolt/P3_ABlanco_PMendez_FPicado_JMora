@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+
+#include "DiskNode.h"
+#include "tinyxml2.h"           
+#include <iostream>
+#include <fstream>
+#include <filesystem>           
+=======
 //
 // Created by Xpc on 15/6/2025.
 //
@@ -6,6 +14,7 @@
 #include <iostream>
 #include <fstream>
 #include <filesystem>           // C++17: para crear carpetas
+>>>>>>> 5d8529b2b1638fd79eadf79dd08b4da6da5fd95e
 
 using namespace tinyxml2;
 namespace fs = std::filesystem;
@@ -28,11 +37,19 @@ void DiskNode::loadConfiguration(const std::string& configPath) {
         throw std::runtime_error("No se pudo cargar config XML: " + configPath);
     }
     XMLElement* root = doc.FirstChildElement("NodeConfiguration");
+<<<<<<< HEAD
+    ip_ = root->FirstChildElement("IP")->GetText();
+    port_ = std::stoi(root->FirstChildElement("Port")->GetText());
+    storageDir_ = root->FirstChildElement("StorageDir")->GetText();
+    numBlocks_ = std::stoi(root->FirstChildElement("NumBlocks")->GetText());
+    blockSize_ = std::stoi(root->FirstChildElement("BlockSize")->GetText());
+=======
     ip_         = root->FirstChildElement("IP")->GetText();
     port_       = std::stoi(root->FirstChildElement("Port")->GetText());
     storageDir_ = root->FirstChildElement("StorageDir")->GetText();
     numBlocks_  = std::stoi(root->FirstChildElement("NumBlocks")->GetText());
     blockSize_  = std::stoi(root->FirstChildElement("BlockSize")->GetText());
+>>>>>>> 5d8529b2b1638fd79eadf79dd08b4da6da5fd95e
 
     blocks_.resize(numBlocks_);  // reservado para cache si quieres
 }
@@ -87,4 +104,8 @@ std::string DiskNode::getInfo() const {
         << " NumBlocks=" << numBlocks_
         << " BlockSize=" << blockSize_;
     return oss.str();
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 5d8529b2b1638fd79eadf79dd08b4da6da5fd95e

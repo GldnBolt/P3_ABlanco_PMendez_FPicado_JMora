@@ -1,0 +1,24 @@
+# Visual Studio
+.vs/
+*.ipch
+*.suo
+*.user
+*.vc.db
+*.VC.db
+*.VC.VC.opendb
+*.sln.docstates
+
+# Build
+bin/
+obj/
+out/
+build/
+cmake-build-*/
+
+# Archivos temporales o grandes
+*.dat
+*.log
+*.vsdx
+
+# Git LFS
+.gitattributes

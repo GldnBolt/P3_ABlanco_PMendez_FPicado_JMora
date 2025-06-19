@@ -1,7 +1,16 @@
 <NodeConfiguration>
+<<<<<<< HEAD
+	<IP>127.0.0.1</IP>
+	<Port>8081</Port>
+	<StorageDir>storage/node2</StorageDir>
+	<NumBlocks>10</NumBlocks>
+	<BlockSize>1024</BlockSize>
+</NodeConfiguration>
+=======
     <IP>127.0.0.1</IP>
     <Port>9002</Port>
     <StorageDir>data/node2</StorageDir>
     <NumBlocks>4</NumBlocks>
     <BlockSize>4096</BlockSize>
 </NodeConfiguration>
+>>>>>>> 5d8529b2b1638fd79eadf79dd08b4da6da5fd95e
