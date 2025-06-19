@@ -1,4 +1,12 @@
+#include <openssl/ssl.h>
 #include <iostream>
+
+int main() {
+    std::cout << "OpenSSL version: " << OpenSSL_version(OPENSSL_VERSION) << std::endl;
+    return 0;
+}
+/*
+ #include <iostream>
 #include <memory>
 #include "DiskNode.h"
 #include "ControllerNode.h"
@@ -29,3 +37,4 @@ int main() {
 
     return 0;
 }
+*/
