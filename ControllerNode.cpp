@@ -3,11 +3,12 @@
 #include <fstream>
 #include <sstream>
 #include <filesystem>
+#include <algorithm>
 
 namespace fs = std::filesystem;
 
-ControllerNode::ControllerNode(const std::string& metadataFile, const std::vector<std::shared_ptr<DiskNode>>& disks)
-    : disks_(disks), numDisks_(disks.size()), metadataFile_(metadataFile)
+ControllerNode::ControllerNode(const std::string& metadataFile, const std::vector<std::shared_ptr<RemoteDiskClient>>& clients)
+    : remoteDisks_(clients), numDisks_(clients.size()), metadataFile_(metadataFile)
 {
     if (numDisks_ < 3)
         throw std::runtime_error("RAID5 requiere al menos 3 discos");
@@ -36,11 +37,11 @@ void ControllerNode::writeStripe(int stripeIndex, const std::string& data) {
 
     for (int d = 0; d < numDisks_; ++d) {
         if (d == p) continue;
-        disks_[d]->writeBlock(stripeIndex, data);
+        remoteDisks_[d]->writeBlock(stripeIndex, data);
         dataBlocks.push_back(data);
     }
     std::string parity = xorParity(dataBlocks);
-    disks_[p]->writeBlock(stripeIndex, parity);
+    remoteDisks_[p]->writeBlock(stripeIndex, parity);
 }
 
 std::string ControllerNode::readStripe(int stripeIndex) {
@@ -50,7 +51,7 @@ std::string ControllerNode::readStripe(int stripeIndex) {
 
     for (int d = 0; d < numDisks_; ++d) {
         try {
-            dataBlocks[d] = disks_[d]->readBlock(stripeIndex);
+            dataBlocks[d] = remoteDisks_[d]->readBlock(stripeIndex);
         }
         catch (...) {
             missing = d;
@@ -105,7 +106,7 @@ void ControllerNode::addDocument(const std::string& docName, const std::string& 
     if (docToStripes_.find(docName) != docToStripes_.end()) {
         deleteDocument(docName);
     }
-    int blockSize = disks_[0]->getBlockSize();
+    int blockSize = remoteDisks_[0]->getBlockSize();
     std::vector<int> stripes;
     for (size_t i = 0; i < content.size(); i += blockSize) {
         std::string chunk = content.substr(i, blockSize);
@@ -138,7 +139,7 @@ void ControllerNode::deleteDocument(const std::string& docName) {
     for (int stripeIndex : it->second) {
         for (int d = 0; d < numDisks_; ++d) {
             try {
-                disks_[d]->writeBlock(stripeIndex, std::string(disks_[0]->getBlockSize(), '\0'));
+                remoteDisks_[d]->writeBlock(stripeIndex, std::string(remoteDisks_[0]->getBlockSize(), '\0'));
             }
             catch (...) {}
         }

@@ -5,12 +5,13 @@
 #include <memory>
 #include <string>
 #include <map>
-#include "DiskNode.h"
+//#include "DiskNode.h"
+#include "RemoteDiskClient.h"
 
 class ControllerNode {
 public:
-    ControllerNode(const std::string& metadataFile, const std::vector<std::shared_ptr<DiskNode>>& disks);
-
+    //ControllerNode(const std::string& metadataFile, const std::vector<std::shared_ptr<DiskNode>>& disks);
+    ControllerNode(const std::string& metadataFile, const std::vector<std::shared_ptr<RemoteDiskClient>>& remoteDisks);
     void writeStripe(int stripeIndex, const std::string& data);
     std::string readStripe(int stripeIndex);
 
@@ -21,7 +22,8 @@ public:
     std::string downloadDocument(const std::string& docName);
 
 private:
-    std::vector<std::shared_ptr<DiskNode>> disks_;
+    std::vector<std::shared_ptr<RemoteDiskClient>> remoteDisks_;
+    //std::vector<std::shared_ptr<DiskNode>> disks_;
     int numDisks_;
     std::map<std::string, std::vector<int>> docToStripes_;
     std::string metadataFile_;

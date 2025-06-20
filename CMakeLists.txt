@@ -23,11 +23,26 @@ foreach(_cfg ${CONFIG_FILES})
 endforeach()
 
 # Fuentes
-set(SOURCES
-        main.cpp
+set(COMMON_SOURCES
         DiskNode.cpp
-        ControllerNode.cpp
         tinyxml2.cpp
 )
 
-add_executable(P3_ABlanco_PMendez_FPicado_JMora ${SOURCES})
+# Main para ControllerNode con HttpServer
+add_executable(P3_ABlanco_PMendez_FPicado_JMora
+        main.cpp
+        ControllerNode.cpp
+        HttpServer.cpp
+        RemoteDiskClient.cpp
+        ${COMMON_SOURCES}
+)
+
+# Main para DiskNodeServer independiente
+add_executable(DiskNodeServer
+        DiskNodeServer.cpp
+        ${COMMON_SOURCES}
+)
+if (WIN32)
+    target_link_libraries(P3_ABlanco_PMendez_FPicado_JMora ws2_32)
+    target_link_libraries(DiskNodeServer ws2_32)
+endif()
