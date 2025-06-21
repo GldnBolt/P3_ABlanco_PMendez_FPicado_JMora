@@ -5,7 +5,7 @@
 #include <memory>
 #include <string>
 #include <map>
-//#include "DiskNode.h"
+#include <filesystem>
 #include "RemoteDiskClient.h"
 
 class ControllerNode {
@@ -16,10 +16,11 @@ public:
     std::string readStripe(int stripeIndex);
 
     // Nuevas funciones para documentos
-    void addDocument(const std::string& docName, const std::string& content);
-    void deleteDocument(const std::string& docName);
+    bool addDocument(const std::string& docName, const std::string& content);
+    bool deleteDocument(const std::string& docName);
     std::vector<std::string> searchDocument(const std::string& docName, bool exact = false);
     std::string downloadDocument(const std::string& docName);
+    std::vector<std::string> getDocuments();
 
 private:
     std::vector<std::shared_ptr<RemoteDiskClient>> remoteDisks_;

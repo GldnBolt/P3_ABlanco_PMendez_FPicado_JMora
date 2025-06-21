@@ -4,6 +4,9 @@ project(P3_ABlanco_PMendez_FPicado_JMora)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+# Establecer la ruta a Qt 6
+set(CMAKE_PREFIX_PATH "E:/Qt/6.9.1/mingw_64/lib/cmake/Qt6")
+
 # Incluir encabezados
 include_directories(${CMAKE_SOURCE_DIR})
 include_directories(${CMAKE_SOURCE_DIR}/extern)  # Asegúrate de incluir httplib
@@ -37,10 +40,23 @@ add_executable(P3_ABlanco_PMendez_FPicado_JMora
 add_executable(DiskNodeServer
         DiskNodeServer.cpp
         ${COMMON_SOURCES}
+        ui_mainwindow.h
 )
+
+# Buscar Qt6 y vincular con Qt6 para el ejecutable principal
+find_package(Qt6 REQUIRED COMPONENTS Widgets Network)
+
+target_link_libraries(P3_ABlanco_PMendez_FPicado_JMora Qt6::Widgets Qt6::Network)
+
+# Enlazar con Qt6 para el ejecutable DiskNodeServer (si es necesario)
+target_link_libraries(DiskNodeServer Qt6::Widgets Qt6::Network)
 
 # Enlazar con Winsock2 en Windows
 if (WIN32)
     target_link_libraries(P3_ABlanco_PMendez_FPicado_JMora ws2_32)
     target_link_libraries(DiskNodeServer ws2_32)
 endif()
+
+# Habilitar procesamiento automático de archivos .ui
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)  # Esto le dice a CMake que genere automáticamente los archivos .h desde .ui

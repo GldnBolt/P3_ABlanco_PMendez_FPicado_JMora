@@ -6,7 +6,7 @@
 #include <iostream>
 
 int main(int argc, char* argv[]) {
-    std::string config = argc > 1 ? argv[1] : "config/config_node1.xml";
+    std::string config = argc > 1 ? argv[1] : "config/config.xml";
     DiskNode node(config);
 
     httplib::Server server;
@@ -34,7 +34,7 @@ int main(int argc, char* argv[]) {
     });
 
     std::cout << "DiskNode listo en http://localhost:8080" << std::endl;
-    server.listen("0.0.0.0", 8080);
+    server.listen("localhost", 8080);
     return 0;
 }
 

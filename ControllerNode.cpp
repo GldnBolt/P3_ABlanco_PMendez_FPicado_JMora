@@ -12,8 +12,13 @@ ControllerNode::ControllerNode(const std::string& metadataFile, const std::vecto
 {
     if (numDisks_ < 3)
         throw std::runtime_error("RAID5 requiere al menos 3 discos");
-    fs::create_directories(fs::path(metadataFile_).parent_path());
-    loadMetadata();
+
+    // Verifica la existencia del directorio antes de crear
+    if (!fs::exists(fs::path(metadataFile_).parent_path())) {
+        fs::create_directories(fs::path(metadataFile_).parent_path());
+    }
+
+    loadMetadata(); // Asegúrate de que el archivo XML se esté cargando
 }
 
 std::string ControllerNode::xorParity(const std::vector<std::string>& blocks) {
@@ -76,7 +81,10 @@ std::string ControllerNode::readStripe(int stripeIndex) {
 
 void ControllerNode::loadMetadata() {
     std::ifstream ifs(metadataFile_);
-    if (!ifs.is_open()) return;
+    if (!ifs.is_open()) {
+        throw std::runtime_error("No se pudo cargar config XML: " + metadataFile_);
+    }
+
     std::string line;
     while (std::getline(ifs, line)) {
         std::istringstream iss(line);
@@ -102,7 +110,7 @@ void ControllerNode::saveMetadata() {
     }
 }
 
-void ControllerNode::addDocument(const std::string& docName, const std::string& content) {
+bool ControllerNode::addDocument(const std::string& docName, const std::string& content) {
     if (docToStripes_.find(docName) != docToStripes_.end()) {
         deleteDocument(docName);
     }
@@ -129,9 +137,10 @@ void ControllerNode::addDocument(const std::string& docName, const std::string& 
     }
     docToStripes_[docName] = stripes;
     saveMetadata();
+    return true;  // Se debe retornar true si el documento fue agregado correctamente
 }
 
-void ControllerNode::deleteDocument(const std::string& docName) {
+bool ControllerNode::deleteDocument(const std::string& docName) {
     auto it = docToStripes_.find(docName);
     if (it == docToStripes_.end()) {
         throw std::runtime_error("Documento no encontrado: " + docName);
@@ -146,6 +155,7 @@ void ControllerNode::deleteDocument(const std::string& docName) {
     }
     docToStripes_.erase(it);
     saveMetadata();
+    return true;
 }
 
 std::vector<std::string> ControllerNode::searchDocument(const std::string& docName, bool exact) {
@@ -181,3 +191,12 @@ std::string ControllerNode::downloadDocument(const std::string& docName) {
         (docName.length() >= 5 && docName.substr(docName.length() - 5) == ".jpeg")) mime = "image/jpeg";
     return content;
 }
+
+std::vector<std::string> ControllerNode::getDocuments() {
+    std::vector<std::string> documentNames;
+    for (const auto& pair : docToStripes_) {
+        documentNames.push_back(pair.first);  // Agregar el nombre del documento
+    }
+    return documentNames;  // Devuelve los nombres de los documentos
+}
+
