@@ -4,59 +4,74 @@ project(P3_ABlanco_PMendez_FPicado_JMora)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Establecer la ruta a Qt 6
+# -- Ruta a Qt6 para find_package
 set(CMAKE_PREFIX_PATH "E:/Qt/6.9.1/mingw_64/lib/cmake/Qt6")
 
-# Incluir encabezados
-include_directories(${CMAKE_SOURCE_DIR})
-include_directories(${CMAKE_SOURCE_DIR}/extern)  # Asegúrate de incluir httplib
+# -- Habilitar moc/uic automáticos
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
 
-# Crear carpeta de configuración si no existe
+# -- Copia de configs XML
 file(MAKE_DIRECTORY "${CMAKE_BINARY_DIR}/config")
-
-# Copiar todos los archivos XML de config/ a build/config/
 file(GLOB CONFIG_FILES "${CMAKE_SOURCE_DIR}/config/*.xml")
 foreach(_cfg ${CONFIG_FILES})
     get_filename_component(_name ${_cfg} NAME)
     configure_file("${_cfg}" "${CMAKE_BINARY_DIR}/config/${_name}" COPYONLY)
 endforeach()
 
-# Archivos fuente compartidos
+# -- Código común (DiskNode + tinyxml2)
 set(COMMON_SOURCES
         DiskNode.cpp
         tinyxml2.cpp
 )
 
-# Ejecutable principal (Controlador)
-add_executable(P3_ABlanco_PMendez_FPicado_JMora
+# -------------------------------------------------------------------
+# EJECUTABLE PRINCIPAL: servidor REST + GUI Qt
+# -------------------------------------------------------------------
+find_package(Qt6 REQUIRED COMPONENTS Widgets Network)
+
+set(P3_SOURCES
         main.cpp
         ControllerNode.cpp
         HttpServer.cpp
         RemoteDiskClient.cpp
+        MainWindow.cpp
+        MainWindow.ui            # Solo el .ui; no hace falta ningún ui_*.h manual
         ${COMMON_SOURCES}
 )
 
-# Ejecutable para los nodos remotos
-add_executable(DiskNodeServer
+add_executable(P3_ABlanco_PMendez_FPicado_JMora
+        ${P3_SOURCES}
+)
+
+target_link_libraries(P3_ABlanco_PMendez_FPicado_JMora
+        PRIVATE
+        Qt6::Widgets
+        Qt6::Network
+        ws2_32
+)
+
+# Incluir httplib, tinyxml2, etc.
+target_include_directories(P3_ABlanco_PMendez_FPicado_JMora
+        PRIVATE ${CMAKE_SOURCE_DIR}/extern
+)
+
+# -------------------------------------------------------------------
+# EJECUTABLE SECUNDARIO: DiskNodeServer (sin GUI)
+# -------------------------------------------------------------------
+set(NODE_SOURCES
         DiskNodeServer.cpp
         ${COMMON_SOURCES}
-        ui_mainwindow.h
 )
 
-# Buscar Qt6 y vincular con Qt6 para el ejecutable principal
-find_package(Qt6 REQUIRED COMPONENTS Widgets Network)
+add_executable(DiskNodeServer
+        ${NODE_SOURCES}
+)
 
-target_link_libraries(P3_ABlanco_PMendez_FPicado_JMora Qt6::Widgets Qt6::Network)
+target_link_libraries(DiskNodeServer
+        PRIVATE ws2_32
+)
 
-# Enlazar con Qt6 para el ejecutable DiskNodeServer (si es necesario)
-target_link_libraries(DiskNodeServer Qt6::Widgets Qt6::Network)
-
-# Enlazar con Winsock2 en Windows
-if (WIN32)
-    target_link_libraries(P3_ABlanco_PMendez_FPicado_JMora ws2_32)
-    target_link_libraries(DiskNodeServer ws2_32)
-endif()
-
-# Habilitar procesamiento automático de archivos .ui
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTOUIC ON)  # Esto le dice a CMake que genere automáticamente los archivos .h desde .ui
+target_include_directories(DiskNodeServer
+        PRIVATE ${CMAKE_SOURCE_DIR}/extern
+)

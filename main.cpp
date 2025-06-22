@@ -1,56 +1,65 @@
+// main.cpp
+
 #include <iostream>
-#include <memory>
-#include <QApplication> // Necesario para QApplication
-#include <QThread>      // Necesario para crear hilos
+#include <QApplication>
+#include <thread>
+
 #include "RemoteDiskClient.h"
 #include "ControllerNode.h"
 #include "HttpServer.h"
-#include "MainWindow.h"  // Asegúrate de incluir la cabecera para MainWindow
-
-class ServerThread : public QThread {
-    Q_OBJECT
-
-    void run() override {
-        HttpServer server(controller, "localhost", 8080);
-        server.start();
-    }
-};
+#include "MainWindow.h"
 
 int main(int argc, char *argv[]) {
-    QApplication a(argc, argv);  // Iniciar QApplication
+    // 0) Inicializa Qt
+    QApplication app(argc, argv);
 
     std::cout << "INICIO DEL MAIN" << std::endl;
 
-    // Crear RemoteDiskClients
+    // 1) Crear RemoteDiskClients apuntando a cada DiskNodeServer
     std::vector<std::shared_ptr<RemoteDiskClient>> disks;
-    std::cout << "Creando RemoteDiskClients..." << std::endl;
     try {
         disks.push_back(std::make_shared<RemoteDiskClient>("localhost", 8081));
         disks.push_back(std::make_shared<RemoteDiskClient>("localhost", 8082));
         disks.push_back(std::make_shared<RemoteDiskClient>("localhost", 8083));
         disks.push_back(std::make_shared<RemoteDiskClient>("localhost", 8084));
-    } catch (const std::exception& e) {
+        std::cout << "RemoteDiskClients creados." << std::endl;
+    }
+    catch (const std::exception &e) {
         std::cerr << "Error creando RemoteDiskClient: " << e.what() << std::endl;
+        return -1;
     }
 
-    // Crear ControllerNode
-    std::cout << "Creando ControllerNode..." << std::endl;
+    // 2) Crear ControllerNode, indicando la ruta a metadata.txt
     std::shared_ptr<ControllerNode> controller;
     try {
-        controller = std::make_shared<ControllerNode>("data/metadata/metadata.txt", disks);
-    } catch (const std::exception& e) {
+        controller = std::make_shared<ControllerNode>(
+            "data/metadata/metadata.txt",
+            disks
+        );
+        std::cout << "ControllerNode creado." << std::endl;
+    }
+    catch (const std::exception &e) {
         std::cerr << "Error al crear ControllerNode: " << e.what() << std::endl;
+        return -1;
     }
 
-    // Ejecutar servidor en un hilo separado
-    std::cout << "Iniciando servidor HTTP..." << std::endl;
-    ServerThread *serverThread = new ServerThread();
-    serverThread->start();
+    // 3) Arrancar servidor HTTP en hilo separado
+    std::thread serverThread([controller]() {
+        try {
+            HttpServer server(controller, "localhost", 8080);
+            std::cout << "Servidor HTTP iniciado en http://localhost:8080" << std::endl;
+            server.start();
+        }
+        catch (const std::exception &e) {
+            std::cerr << "Error en HttpServer: " << e.what() << std::endl;
+        }
+    });
+    serverThread.detach();  // No bloquea el hilo principal
 
-    // Crear la ventana principal de la interfaz gráfica
-    MainWindow w;
-    w.show();  // Mostrar la ventana principal
+    // 4) Crear y mostrar la ventana principal, pasándole el controller
+    MainWindow w(controller);
+    w.show();
 
     std::cout << "FIN DEL MAIN" << std::endl;
-    return a.exec();  // Ejecutar el bucle de eventos de Qt
+    return app.exec();
 }

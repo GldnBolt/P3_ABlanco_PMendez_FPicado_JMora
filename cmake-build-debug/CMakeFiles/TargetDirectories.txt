@@ -2,3 +2,7 @@ D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug/CMakeFiles/P3_ABlan
 D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug/CMakeFiles/DiskNodeServer.dir
 D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug/CMakeFiles/edit_cache.dir
 D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug/CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora_autogen_timestamp_deps.dir
+D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug/CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora_autogen.dir
+D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug/CMakeFiles/DiskNodeServer_autogen_timestamp_deps.dir
+D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug/CMakeFiles/DiskNodeServer_autogen.dir

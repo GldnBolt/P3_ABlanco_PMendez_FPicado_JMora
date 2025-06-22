@@ -47,13 +47,21 @@ cmake_ninja_workdir = D$:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-de
 #############################################
 # Order-only phony target for P3_ABlanco_PMendez_FPicado_JMora
 
-build cmake_object_order_depends_target_P3_ABlanco_PMendez_FPicado_JMora: phony || .
+build cmake_object_order_depends_target_P3_ABlanco_PMendez_FPicado_JMora: phony || P3_ABlanco_PMendez_FPicado_JMora_autogen P3_ABlanco_PMendez_FPicado_JMora_autogen/mocs_compilation.cpp P3_ABlanco_PMendez_FPicado_JMora_autogen/timestamp P3_ABlanco_PMendez_FPicado_JMora_autogen_timestamp_deps
+
+build CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/P3_ABlanco_PMendez_FPicado_JMora_autogen/mocs_compilation.cpp.obj: CXX_COMPILER__P3_ABlanco_PMendez_FPicado_JMora_unscanned_Debug D$:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug/P3_ABlanco_PMendez_FPicado_JMora_autogen/mocs_compilation.cpp || cmake_object_order_depends_target_P3_ABlanco_PMendez_FPicado_JMora
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir\P3_ABlanco_PMendez_FPicado_JMora_autogen\mocs_compilation.cpp.obj.d
+  FLAGS = -g -std=c++20 -fdiagnostics-color=always
+  INCLUDES = -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/extern -isystem D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug/P3_ABlanco_PMendez_FPicado_JMora_autogen/include -isystem E:/Qt/6.9.1/mingw_64/include/QtWidgets -isystem E:/Qt/6.9.1/mingw_64/include -isystem E:/Qt/6.9.1/mingw_64/include/QtCore -isystem E:/Qt/6.9.1/mingw_64/mkspecs/win32-g++ -isystem E:/Qt/6.9.1/mingw_64/include/QtGui -isystem E:/Qt/6.9.1/mingw_64/include/QtNetwork
+  OBJECT_DIR = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir
+  OBJECT_FILE_DIR = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir\P3_ABlanco_PMendez_FPicado_JMora_autogen
 
 build CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/main.cpp.obj: CXX_COMPILER__P3_ABlanco_PMendez_FPicado_JMora_unscanned_Debug D$:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/main.cpp || cmake_object_order_depends_target_P3_ABlanco_PMendez_FPicado_JMora
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir\main.cpp.obj.d
   FLAGS = -g -std=c++20 -fdiagnostics-color=always
-  INCLUDES = -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/extern -isystem E:/Qt/6.9.1/mingw_64/include/QtWidgets -isystem E:/Qt/6.9.1/mingw_64/include -isystem E:/Qt/6.9.1/mingw_64/include/QtCore -isystem E:/Qt/6.9.1/mingw_64/mkspecs/win32-g++ -isystem E:/Qt/6.9.1/mingw_64/include/QtGui -isystem E:/Qt/6.9.1/mingw_64/include/QtNetwork
+  INCLUDES = -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/extern -isystem D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug/P3_ABlanco_PMendez_FPicado_JMora_autogen/include -isystem E:/Qt/6.9.1/mingw_64/include/QtWidgets -isystem E:/Qt/6.9.1/mingw_64/include -isystem E:/Qt/6.9.1/mingw_64/include/QtCore -isystem E:/Qt/6.9.1/mingw_64/mkspecs/win32-g++ -isystem E:/Qt/6.9.1/mingw_64/include/QtGui -isystem E:/Qt/6.9.1/mingw_64/include/QtNetwork
   OBJECT_DIR = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir
   OBJECT_FILE_DIR = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir
 
@@ -61,7 +69,7 @@ build CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/ControllerNode.cpp.obj: CX
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir\ControllerNode.cpp.obj.d
   FLAGS = -g -std=c++20 -fdiagnostics-color=always
-  INCLUDES = -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/extern -isystem E:/Qt/6.9.1/mingw_64/include/QtWidgets -isystem E:/Qt/6.9.1/mingw_64/include -isystem E:/Qt/6.9.1/mingw_64/include/QtCore -isystem E:/Qt/6.9.1/mingw_64/mkspecs/win32-g++ -isystem E:/Qt/6.9.1/mingw_64/include/QtGui -isystem E:/Qt/6.9.1/mingw_64/include/QtNetwork
+  INCLUDES = -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/extern -isystem D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug/P3_ABlanco_PMendez_FPicado_JMora_autogen/include -isystem E:/Qt/6.9.1/mingw_64/include/QtWidgets -isystem E:/Qt/6.9.1/mingw_64/include -isystem E:/Qt/6.9.1/mingw_64/include/QtCore -isystem E:/Qt/6.9.1/mingw_64/mkspecs/win32-g++ -isystem E:/Qt/6.9.1/mingw_64/include/QtGui -isystem E:/Qt/6.9.1/mingw_64/include/QtNetwork
   OBJECT_DIR = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir
   OBJECT_FILE_DIR = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir
 
@@ -69,7 +77,7 @@ build CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/HttpServer.cpp.obj: CXX_CO
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir\HttpServer.cpp.obj.d
   FLAGS = -g -std=c++20 -fdiagnostics-color=always
-  INCLUDES = -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/extern -isystem E:/Qt/6.9.1/mingw_64/include/QtWidgets -isystem E:/Qt/6.9.1/mingw_64/include -isystem E:/Qt/6.9.1/mingw_64/include/QtCore -isystem E:/Qt/6.9.1/mingw_64/mkspecs/win32-g++ -isystem E:/Qt/6.9.1/mingw_64/include/QtGui -isystem E:/Qt/6.9.1/mingw_64/include/QtNetwork
+  INCLUDES = -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/extern -isystem D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug/P3_ABlanco_PMendez_FPicado_JMora_autogen/include -isystem E:/Qt/6.9.1/mingw_64/include/QtWidgets -isystem E:/Qt/6.9.1/mingw_64/include -isystem E:/Qt/6.9.1/mingw_64/include/QtCore -isystem E:/Qt/6.9.1/mingw_64/mkspecs/win32-g++ -isystem E:/Qt/6.9.1/mingw_64/include/QtGui -isystem E:/Qt/6.9.1/mingw_64/include/QtNetwork
   OBJECT_DIR = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir
   OBJECT_FILE_DIR = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir
 
@@ -77,7 +85,15 @@ build CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/RemoteDiskClient.cpp.obj: 
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir\RemoteDiskClient.cpp.obj.d
   FLAGS = -g -std=c++20 -fdiagnostics-color=always
-  INCLUDES = -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/extern -isystem E:/Qt/6.9.1/mingw_64/include/QtWidgets -isystem E:/Qt/6.9.1/mingw_64/include -isystem E:/Qt/6.9.1/mingw_64/include/QtCore -isystem E:/Qt/6.9.1/mingw_64/mkspecs/win32-g++ -isystem E:/Qt/6.9.1/mingw_64/include/QtGui -isystem E:/Qt/6.9.1/mingw_64/include/QtNetwork
+  INCLUDES = -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/extern -isystem D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug/P3_ABlanco_PMendez_FPicado_JMora_autogen/include -isystem E:/Qt/6.9.1/mingw_64/include/QtWidgets -isystem E:/Qt/6.9.1/mingw_64/include -isystem E:/Qt/6.9.1/mingw_64/include/QtCore -isystem E:/Qt/6.9.1/mingw_64/mkspecs/win32-g++ -isystem E:/Qt/6.9.1/mingw_64/include/QtGui -isystem E:/Qt/6.9.1/mingw_64/include/QtNetwork
+  OBJECT_DIR = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir
+  OBJECT_FILE_DIR = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir
+
+build CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/MainWindow.cpp.obj: CXX_COMPILER__P3_ABlanco_PMendez_FPicado_JMora_unscanned_Debug D$:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/MainWindow.cpp || cmake_object_order_depends_target_P3_ABlanco_PMendez_FPicado_JMora
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir\MainWindow.cpp.obj.d
+  FLAGS = -g -std=c++20 -fdiagnostics-color=always
+  INCLUDES = -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/extern -isystem D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug/P3_ABlanco_PMendez_FPicado_JMora_autogen/include -isystem E:/Qt/6.9.1/mingw_64/include/QtWidgets -isystem E:/Qt/6.9.1/mingw_64/include -isystem E:/Qt/6.9.1/mingw_64/include/QtCore -isystem E:/Qt/6.9.1/mingw_64/mkspecs/win32-g++ -isystem E:/Qt/6.9.1/mingw_64/include/QtGui -isystem E:/Qt/6.9.1/mingw_64/include/QtNetwork
   OBJECT_DIR = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir
   OBJECT_FILE_DIR = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir
 
@@ -85,7 +101,7 @@ build CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/DiskNode.cpp.obj: CXX_COMP
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir\DiskNode.cpp.obj.d
   FLAGS = -g -std=c++20 -fdiagnostics-color=always
-  INCLUDES = -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/extern -isystem E:/Qt/6.9.1/mingw_64/include/QtWidgets -isystem E:/Qt/6.9.1/mingw_64/include -isystem E:/Qt/6.9.1/mingw_64/include/QtCore -isystem E:/Qt/6.9.1/mingw_64/mkspecs/win32-g++ -isystem E:/Qt/6.9.1/mingw_64/include/QtGui -isystem E:/Qt/6.9.1/mingw_64/include/QtNetwork
+  INCLUDES = -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/extern -isystem D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug/P3_ABlanco_PMendez_FPicado_JMora_autogen/include -isystem E:/Qt/6.9.1/mingw_64/include/QtWidgets -isystem E:/Qt/6.9.1/mingw_64/include -isystem E:/Qt/6.9.1/mingw_64/include/QtCore -isystem E:/Qt/6.9.1/mingw_64/mkspecs/win32-g++ -isystem E:/Qt/6.9.1/mingw_64/include/QtGui -isystem E:/Qt/6.9.1/mingw_64/include/QtNetwork
   OBJECT_DIR = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir
   OBJECT_FILE_DIR = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir
 
@@ -93,7 +109,7 @@ build CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/tinyxml2.cpp.obj: CXX_COMP
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir\tinyxml2.cpp.obj.d
   FLAGS = -g -std=c++20 -fdiagnostics-color=always
-  INCLUDES = -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/extern -isystem E:/Qt/6.9.1/mingw_64/include/QtWidgets -isystem E:/Qt/6.9.1/mingw_64/include -isystem E:/Qt/6.9.1/mingw_64/include/QtCore -isystem E:/Qt/6.9.1/mingw_64/mkspecs/win32-g++ -isystem E:/Qt/6.9.1/mingw_64/include/QtGui -isystem E:/Qt/6.9.1/mingw_64/include/QtNetwork
+  INCLUDES = -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/extern -isystem D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug/P3_ABlanco_PMendez_FPicado_JMora_autogen/include -isystem E:/Qt/6.9.1/mingw_64/include/QtWidgets -isystem E:/Qt/6.9.1/mingw_64/include -isystem E:/Qt/6.9.1/mingw_64/include/QtCore -isystem E:/Qt/6.9.1/mingw_64/mkspecs/win32-g++ -isystem E:/Qt/6.9.1/mingw_64/include/QtGui -isystem E:/Qt/6.9.1/mingw_64/include/QtNetwork
   OBJECT_DIR = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir
   OBJECT_FILE_DIR = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir
 
@@ -105,7 +121,7 @@ build CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/tinyxml2.cpp.obj: CXX_COMP
 #############################################
 # Link the executable P3_ABlanco_PMendez_FPicado_JMora.exe
 
-build P3_ABlanco_PMendez_FPicado_JMora.exe: CXX_EXECUTABLE_LINKER__P3_ABlanco_PMendez_FPicado_JMora_Debug CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/main.cpp.obj CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/ControllerNode.cpp.obj CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/HttpServer.cpp.obj CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/RemoteDiskClient.cpp.obj CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/DiskNode.cpp.obj CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/tinyxml2.cpp.obj | E$:/Qt/6.9.1/mingw_64/lib/libQt6Widgets.a E$:/Qt/6.9.1/mingw_64/lib/libQt6Network.a E$:/Qt/6.9.1/mingw_64/lib/libQt6Gui.a E$:/Qt/6.9.1/mingw_64/lib/libQt6Core.a
+build P3_ABlanco_PMendez_FPicado_JMora.exe: CXX_EXECUTABLE_LINKER__P3_ABlanco_PMendez_FPicado_JMora_Debug CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/P3_ABlanco_PMendez_FPicado_JMora_autogen/mocs_compilation.cpp.obj CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/main.cpp.obj CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/ControllerNode.cpp.obj CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/HttpServer.cpp.obj CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/RemoteDiskClient.cpp.obj CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/MainWindow.cpp.obj CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/DiskNode.cpp.obj CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora.dir/tinyxml2.cpp.obj | E$:/Qt/6.9.1/mingw_64/lib/libQt6Widgets.a E$:/Qt/6.9.1/mingw_64/lib/libQt6Network.a E$:/Qt/6.9.1/mingw_64/lib/libQt6Gui.a E$:/Qt/6.9.1/mingw_64/lib/libQt6Core.a || P3_ABlanco_PMendez_FPicado_JMora_autogen P3_ABlanco_PMendez_FPicado_JMora_autogen_timestamp_deps
   FLAGS = -g
   LINK_LIBRARIES = E:/Qt/6.9.1/mingw_64/lib/libQt6Widgets.a  E:/Qt/6.9.1/mingw_64/lib/libQt6Network.a  -lws2_32  E:/Qt/6.9.1/mingw_64/lib/libQt6Gui.a  -ld3d11  -ldxgi  -ldxguid  -ld3d12  E:/Qt/6.9.1/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora.dir
@@ -122,29 +138,33 @@ build P3_ABlanco_PMendez_FPicado_JMora.exe: CXX_EXECUTABLE_LINKER__P3_ABlanco_PM
 #############################################
 # Order-only phony target for DiskNodeServer
 
-build cmake_object_order_depends_target_DiskNodeServer: phony || .
+build cmake_object_order_depends_target_DiskNodeServer: phony || DiskNodeServer_autogen DiskNodeServer_autogen/mocs_compilation.cpp DiskNodeServer_autogen/timestamp DiskNodeServer_autogen_timestamp_deps
+
+build CMakeFiles/DiskNodeServer.dir/DiskNodeServer_autogen/mocs_compilation.cpp.obj: CXX_COMPILER__DiskNodeServer_unscanned_Debug D$:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug/DiskNodeServer_autogen/mocs_compilation.cpp || cmake_object_order_depends_target_DiskNodeServer
+  DEP_FILE = CMakeFiles\DiskNodeServer.dir\DiskNodeServer_autogen\mocs_compilation.cpp.obj.d
+  FLAGS = -g -std=c++20 -fdiagnostics-color=always
+  INCLUDES = -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/extern -isystem D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug/DiskNodeServer_autogen/include
+  OBJECT_DIR = CMakeFiles\DiskNodeServer.dir
+  OBJECT_FILE_DIR = CMakeFiles\DiskNodeServer.dir\DiskNodeServer_autogen
 
 build CMakeFiles/DiskNodeServer.dir/DiskNodeServer.cpp.obj: CXX_COMPILER__DiskNodeServer_unscanned_Debug D$:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/DiskNodeServer.cpp || cmake_object_order_depends_target_DiskNodeServer
-  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\DiskNodeServer.dir\DiskNodeServer.cpp.obj.d
   FLAGS = -g -std=c++20 -fdiagnostics-color=always
-  INCLUDES = -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/extern -isystem E:/Qt/6.9.1/mingw_64/include/QtWidgets -isystem E:/Qt/6.9.1/mingw_64/include -isystem E:/Qt/6.9.1/mingw_64/include/QtCore -isystem E:/Qt/6.9.1/mingw_64/mkspecs/win32-g++ -isystem E:/Qt/6.9.1/mingw_64/include/QtGui -isystem E:/Qt/6.9.1/mingw_64/include/QtNetwork
+  INCLUDES = -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/extern -isystem D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug/DiskNodeServer_autogen/include
   OBJECT_DIR = CMakeFiles\DiskNodeServer.dir
   OBJECT_FILE_DIR = CMakeFiles\DiskNodeServer.dir
 
 build CMakeFiles/DiskNodeServer.dir/DiskNode.cpp.obj: CXX_COMPILER__DiskNodeServer_unscanned_Debug D$:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/DiskNode.cpp || cmake_object_order_depends_target_DiskNodeServer
-  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\DiskNodeServer.dir\DiskNode.cpp.obj.d
   FLAGS = -g -std=c++20 -fdiagnostics-color=always
-  INCLUDES = -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/extern -isystem E:/Qt/6.9.1/mingw_64/include/QtWidgets -isystem E:/Qt/6.9.1/mingw_64/include -isystem E:/Qt/6.9.1/mingw_64/include/QtCore -isystem E:/Qt/6.9.1/mingw_64/mkspecs/win32-g++ -isystem E:/Qt/6.9.1/mingw_64/include/QtGui -isystem E:/Qt/6.9.1/mingw_64/include/QtNetwork
+  INCLUDES = -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/extern -isystem D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug/DiskNodeServer_autogen/include
   OBJECT_DIR = CMakeFiles\DiskNodeServer.dir
   OBJECT_FILE_DIR = CMakeFiles\DiskNodeServer.dir
 
 build CMakeFiles/DiskNodeServer.dir/tinyxml2.cpp.obj: CXX_COMPILER__DiskNodeServer_unscanned_Debug D$:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/tinyxml2.cpp || cmake_object_order_depends_target_DiskNodeServer
-  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\DiskNodeServer.dir\tinyxml2.cpp.obj.d
   FLAGS = -g -std=c++20 -fdiagnostics-color=always
-  INCLUDES = -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/extern -isystem E:/Qt/6.9.1/mingw_64/include/QtWidgets -isystem E:/Qt/6.9.1/mingw_64/include -isystem E:/Qt/6.9.1/mingw_64/include/QtCore -isystem E:/Qt/6.9.1/mingw_64/mkspecs/win32-g++ -isystem E:/Qt/6.9.1/mingw_64/include/QtGui -isystem E:/Qt/6.9.1/mingw_64/include/QtNetwork
+  INCLUDES = -ID:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/extern -isystem D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug/DiskNodeServer_autogen/include
   OBJECT_DIR = CMakeFiles\DiskNodeServer.dir
   OBJECT_FILE_DIR = CMakeFiles\DiskNodeServer.dir
 
@@ -156,9 +176,9 @@ build CMakeFiles/DiskNodeServer.dir/tinyxml2.cpp.obj: CXX_COMPILER__DiskNodeServ
 #############################################
 # Link the executable DiskNodeServer.exe
 
-build DiskNodeServer.exe: CXX_EXECUTABLE_LINKER__DiskNodeServer_Debug CMakeFiles/DiskNodeServer.dir/DiskNodeServer.cpp.obj CMakeFiles/DiskNodeServer.dir/DiskNode.cpp.obj CMakeFiles/DiskNodeServer.dir/tinyxml2.cpp.obj | E$:/Qt/6.9.1/mingw_64/lib/libQt6Widgets.a E$:/Qt/6.9.1/mingw_64/lib/libQt6Network.a E$:/Qt/6.9.1/mingw_64/lib/libQt6Gui.a E$:/Qt/6.9.1/mingw_64/lib/libQt6Core.a
+build DiskNodeServer.exe: CXX_EXECUTABLE_LINKER__DiskNodeServer_Debug CMakeFiles/DiskNodeServer.dir/DiskNodeServer_autogen/mocs_compilation.cpp.obj CMakeFiles/DiskNodeServer.dir/DiskNodeServer.cpp.obj CMakeFiles/DiskNodeServer.dir/DiskNode.cpp.obj CMakeFiles/DiskNodeServer.dir/tinyxml2.cpp.obj || DiskNodeServer_autogen DiskNodeServer_autogen_timestamp_deps
   FLAGS = -g
-  LINK_LIBRARIES = E:/Qt/6.9.1/mingw_64/lib/libQt6Widgets.a  E:/Qt/6.9.1/mingw_64/lib/libQt6Network.a  -lws2_32  E:/Qt/6.9.1/mingw_64/lib/libQt6Gui.a  -ld3d11  -ldxgi  -ldxguid  -ld3d12  E:/Qt/6.9.1/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = -lws2_32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\DiskNodeServer.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
@@ -188,6 +208,64 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
   restat = 1
 
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for P3_ABlanco_PMendez_FPicado_JMora_autogen_timestamp_deps
+
+build P3_ABlanco_PMendez_FPicado_JMora_autogen_timestamp_deps: phony
+
+
+#############################################
+# Utility command for P3_ABlanco_PMendez_FPicado_JMora_autogen
+
+build P3_ABlanco_PMendez_FPicado_JMora_autogen: phony CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora_autogen P3_ABlanco_PMendez_FPicado_JMora_autogen/include/ui_MainWindow.h P3_ABlanco_PMendez_FPicado_JMora_autogen/timestamp P3_ABlanco_PMendez_FPicado_JMora_autogen/mocs_compilation.cpp P3_ABlanco_PMendez_FPicado_JMora_autogen_timestamp_deps
+
+
+#############################################
+# Utility command for DiskNodeServer_autogen_timestamp_deps
+
+build DiskNodeServer_autogen_timestamp_deps: phony
+
+
+#############################################
+# Utility command for DiskNodeServer_autogen
+
+build DiskNodeServer_autogen: phony CMakeFiles/DiskNodeServer_autogen DiskNodeServer_autogen/include/ui_MainWindow.h DiskNodeServer_autogen/timestamp DiskNodeServer_autogen/mocs_compilation.cpp DiskNodeServer_autogen_timestamp_deps
+
+
+#############################################
+# Custom command for P3_ABlanco_PMendez_FPicado_JMora_autogen\timestamp
+
+build P3_ABlanco_PMendez_FPicado_JMora_autogen/timestamp P3_ABlanco_PMendez_FPicado_JMora_autogen/mocs_compilation.cpp | ${cmake_ninja_workdir}P3_ABlanco_PMendez_FPicado_JMora_autogen/timestamp ${cmake_ninja_workdir}P3_ABlanco_PMendez_FPicado_JMora_autogen/mocs_compilation.cpp: CUSTOM_COMMAND E$:/Qt/6.9.1/mingw_64/bin/moc.exe E$:/Qt/6.9.1/mingw_64/bin/uic.exe || P3_ABlanco_PMendez_FPicado_JMora_autogen_timestamp_deps
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D D:\GitHub\P3_ABlanco_PMendez_FPicado_JMora\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2024.3.3\bin\cmake\win\x64\bin\cmake.exe" -E cmake_autogen D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug/CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora_autogen.dir/AutogenInfo.json Debug && "C:\Program Files\JetBrains\CLion 2024.3.3\bin\cmake\win\x64\bin\cmake.exe" -E touch D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug/P3_ABlanco_PMendez_FPicado_JMora_autogen/timestamp && "C:\Program Files\JetBrains\CLion 2024.3.3\bin\cmake\win\x64\bin\cmake.exe" -E cmake_transform_depfile Ninja gccdepfile D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug/P3_ABlanco_PMendez_FPicado_JMora_autogen/deps D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug/CMakeFiles/d/ad84736fbcba4f8aec5b702d8398b50dd47059453a428b8a2f876a5b417d5bd3.d"
+  DESC = Automatic MOC and UIC for target P3_ABlanco_PMendez_FPicado_JMora
+  depfile = CMakeFiles\d\ad84736fbcba4f8aec5b702d8398b50dd47059453a428b8a2f876a5b417d5bd3.d
+  deps = gcc
+  restat = 1
+
+
+#############################################
+# Custom command for DiskNodeServer_autogen\timestamp
+
+build DiskNodeServer_autogen/timestamp DiskNodeServer_autogen/mocs_compilation.cpp | ${cmake_ninja_workdir}DiskNodeServer_autogen/timestamp ${cmake_ninja_workdir}DiskNodeServer_autogen/mocs_compilation.cpp: CUSTOM_COMMAND E$:/Qt/6.9.1/mingw_64/bin/moc.exe E$:/Qt/6.9.1/mingw_64/bin/uic.exe || DiskNodeServer_autogen_timestamp_deps
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D D:\GitHub\P3_ABlanco_PMendez_FPicado_JMora\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2024.3.3\bin\cmake\win\x64\bin\cmake.exe" -E cmake_autogen D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug/CMakeFiles/DiskNodeServer_autogen.dir/AutogenInfo.json Debug && "C:\Program Files\JetBrains\CLion 2024.3.3\bin\cmake\win\x64\bin\cmake.exe" -E touch D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug/DiskNodeServer_autogen/timestamp && "C:\Program Files\JetBrains\CLion 2024.3.3\bin\cmake\win\x64\bin\cmake.exe" -E cmake_transform_depfile Ninja gccdepfile D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug/DiskNodeServer_autogen/deps D:/GitHub/P3_ABlanco_PMendez_FPicado_JMora/cmake-build-debug/CMakeFiles/d/a3d84b072bc554a3f5e63bbc3bec5c7c9aac627e977288d5114eba03a6e0e846.d"
+  DESC = Automatic MOC and UIC for target DiskNodeServer
+  depfile = CMakeFiles\d\a3d84b072bc554a3f5e63bbc3bec5c7c9aac627e977288d5114eba03a6e0e846.d
+  deps = gcc
+  restat = 1
+
+
+#############################################
+# Phony custom command for CMakeFiles\P3_ABlanco_PMendez_FPicado_JMora_autogen
+
+build CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora_autogen P3_ABlanco_PMendez_FPicado_JMora_autogen/include/ui_MainWindow.h | ${cmake_ninja_workdir}CMakeFiles/P3_ABlanco_PMendez_FPicado_JMora_autogen ${cmake_ninja_workdir}P3_ABlanco_PMendez_FPicado_JMora_autogen/include/ui_MainWindow.h: phony P3_ABlanco_PMendez_FPicado_JMora_autogen/timestamp || P3_ABlanco_PMendez_FPicado_JMora_autogen_timestamp_deps
+
+
+#############################################
+# Phony custom command for CMakeFiles\DiskNodeServer_autogen
+
+build CMakeFiles/DiskNodeServer_autogen DiskNodeServer_autogen/include/ui_MainWindow.h | ${cmake_ninja_workdir}CMakeFiles/DiskNodeServer_autogen ${cmake_ninja_workdir}DiskNodeServer_autogen/include/ui_MainWindow.h: phony DiskNodeServer_autogen/timestamp || DiskNodeServer_autogen_timestamp_deps
 
 # =============================================================================
 # Target aliases.
@@ -224,9 +302,16 @@ build C$:/Program$ Files/JetBrains/CLion$ 2024.3.3/bin/cmake/win/x64/share/cmake
 
 
 #############################################
+# Clean additional files.
+
+build CMakeFiles/clean.additional: CLEAN_ADDITIONAL
+  CONFIG = Debug
+
+
+#############################################
 # Clean all the built files.
 
-build clean: CLEAN
+build clean: CLEAN CMakeFiles/clean.additional
 
 
 #############################################
