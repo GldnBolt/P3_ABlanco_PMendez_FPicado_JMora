@@ -36,7 +36,7 @@ set(P3_SOURCES
         HttpServer.cpp
         RemoteDiskClient.cpp
         MainWindow.cpp
-        MainWindow.ui            # Solo el .ui; no hace falta ningún ui_*.h manual
+        MainWindow.ui
         ${COMMON_SOURCES}
 )
 
@@ -51,7 +51,7 @@ target_link_libraries(P3_ABlanco_PMendez_FPicado_JMora
         ws2_32
 )
 
-# Incluir httplib, tinyxml2, etc.
+
 target_include_directories(P3_ABlanco_PMendez_FPicado_JMora
         PRIVATE ${CMAKE_SOURCE_DIR}/extern
 )

@@ -21,7 +21,7 @@ MainWindow::~MainWindow() {
 }
 
 void MainWindow::onAddDocument() {
-    // Filtro directo a PDF (puedes ajustarlo o quitarlo)
+    // Filtro directo a PDF
     QString fileName = QFileDialog::getOpenFileName(this,
         "Selecciona un PDF", QString(), "PDF Files (*.pdf);;Todos los archivos (*)");
     if (fileName.isEmpty()) {
@@ -36,9 +36,9 @@ void MainWindow::onAddDocument() {
         QMessageBox::critical(this, "Error", "No se pudo abrir el archivo.");
         return;
     }
-    // **Leer todo como binario**, no con QTextStream
+
     QByteArray data = file.readAll();
-    // Construimos std::string conservando bytes null:
+
     std::string content(data.constData(), data.size());
 
     try {

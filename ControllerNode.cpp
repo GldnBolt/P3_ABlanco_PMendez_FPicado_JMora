@@ -18,7 +18,7 @@ ControllerNode::ControllerNode(const std::string& metadataFile, const std::vecto
         fs::create_directories(fs::path(metadataFile_).parent_path());
     }
 
-    loadMetadata(); // Asegúrate de que el archivo XML se esté cargando
+    loadMetadata();
 }
 
 std::string ControllerNode::xorParity(const std::vector<std::string>& blocks) {
@@ -137,7 +137,7 @@ bool ControllerNode::addDocument(const std::string& docName, const std::string& 
     }
     docToStripes_[docName] = stripes;
     saveMetadata();
-    return true;  // Se debe retornar true si el documento fue agregado correctamente
+    return true;
 }
 
 bool ControllerNode::deleteDocument(const std::string& docName) {

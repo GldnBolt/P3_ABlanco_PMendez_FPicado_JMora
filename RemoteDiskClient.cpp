@@ -19,8 +19,7 @@ std::string RemoteDiskClient::readBlock(int index) {
     return res->body;
 }
 int RemoteDiskClient::getBlockSize() const {
-    // Suponemos un tamaño fijo por ahora (como en el archivo XML de DiskNode)
-    return 1024;  // Ajusta este valor si tu bloque tiene otro tamaño
+    return 1024;
 }
 
 void RemoteDiskClient::writeBlock(int index, const std::string& data) {

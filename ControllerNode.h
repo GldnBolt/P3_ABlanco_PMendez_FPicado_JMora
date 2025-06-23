@@ -15,7 +15,7 @@ public:
     void writeStripe(int stripeIndex, const std::string& data);
     std::string readStripe(int stripeIndex);
 
-    // Nuevas funciones para documentos
+
     bool addDocument(const std::string& docName, const std::string& content);
     bool deleteDocument(const std::string& docName);
     std::vector<std::string> searchDocument(const std::string& docName, bool exact = false);
