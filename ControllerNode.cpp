@@ -4,6 +4,7 @@
 #include <sstream>
 #include <filesystem>
 #include <algorithm>
+#include <iostream>
 
 namespace fs = std::filesystem;
 
@@ -173,24 +174,32 @@ std::vector<std::string> ControllerNode::searchDocument(const std::string& docNa
 }
 
 std::string ControllerNode::downloadDocument(const std::string& docName) {
-    auto it = docToStripes_.find(docName);
-    if (it == docToStripes_.end()) {
-        throw std::runtime_error("Documento no encontrado: " + docName);
+    // Verificar que el documento exista en el mapa docToStripes_
+    if (docToStripes_.find(docName) == docToStripes_.end()) {
+        throw std::runtime_error("El documento no existe en el RAID.");
     }
-    std::string content;
-    for (int stripeIndex : it->second) {
-        std::string chunk = readStripe(stripeIndex);
-        size_t end = chunk.find('\0');
-        chunk = (end != std::string::npos) ? chunk.substr(0, end) : chunk;
-        content += chunk;
+
+    // Obtener los índices de los bloques correspondientes al documento
+    auto blocks = docToStripes_[docName];
+
+    std::string content;  // Contendrá todo el contenido del documento
+
+    for (int stripe : blocks) {
+        try {
+            // Leer el bloque del RAID (esto depende de tu implementación de RAID y de la lectura de bloques)
+            std::string blockContent = readStripe(stripe); // Supongamos que readStripe obtiene el bloque
+            content += blockContent;  // Concatenamos el contenido de cada bloque
+        }
+        catch (const std::exception& e) {
+            std::cerr << "Error al leer el bloque " << stripe << ": " << e.what() << std::endl;
+            throw std::runtime_error("Error al leer uno de los bloques.");
+        }
     }
-    std::string mime = "application/octet-stream";
-    if (docName.length() >= 4 && docName.substr(docName.length() - 4) == ".txt") mime = "text/plain";
-    else if (docName.length() >= 4 && docName.substr(docName.length() - 4) == ".pdf") mime = "application/pdf";
-    else if ((docName.length() >= 4 && docName.substr(docName.length() - 4) == ".jpg") ||
-        (docName.length() >= 5 && docName.substr(docName.length() - 5) == ".jpeg")) mime = "image/jpeg";
-    return content;
+
+    // En este punto, "content" tiene todo el contenido del documento
+    return content;  // Retorna el contenido completo
 }
+
 
 std::vector<std::string> ControllerNode::getDocuments() {
     std::vector<std::string> documentNames;
@@ -199,4 +208,20 @@ std::vector<std::string> ControllerNode::getDocuments() {
     }
     return documentNames;  // Devuelve los nombres de los documentos
 }
+
+std::vector<std::vector<ControllerNode::BlockStatus>> ControllerNode::getRaidStatus() {
+    int numNodes = remoteDisks_.size();
+    int numStripes = 5; // Cambia esto por el valor real si lo sabes
+
+    std::vector<std::vector<BlockStatus>> status(numNodes, std::vector<BlockStatus>(numStripes));
+    for (int i = 0; i < numNodes; ++i) {
+        for (int j = 0; j < numStripes; ++j) {
+            status[i][j].present = true;
+            status[i][j].isParity = (j == numStripes - 1);
+        }
+    }
+    return status;
+}
+
+
 

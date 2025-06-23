@@ -15,12 +15,17 @@ public:
     void writeStripe(int stripeIndex, const std::string& data);
     std::string readStripe(int stripeIndex);
 
+    struct BlockStatus {
+        bool present;
+        bool isParity;
+    };
 
     bool addDocument(const std::string& docName, const std::string& content);
     bool deleteDocument(const std::string& docName);
     std::vector<std::string> searchDocument(const std::string& docName, bool exact = false);
     std::string downloadDocument(const std::string& docName);
     std::vector<std::string> getDocuments();
+    std::vector<std::vector<BlockStatus>> getRaidStatus(); // nodos x stripes
 
 private:
     std::vector<std::shared_ptr<RemoteDiskClient>> remoteDisks_;

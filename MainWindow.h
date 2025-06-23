@@ -17,6 +17,8 @@ public:
     ~MainWindow();
 
     private slots:
+        void onDownloadDocument();
+        void updateRaidStatus();
         void onAddDocument();
         void onDeleteDocument();
         void onListDocuments();
